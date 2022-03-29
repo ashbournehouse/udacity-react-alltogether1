@@ -4,23 +4,23 @@ import './Css/App.css';
 
 import Header from './Components/Header.jsx'
 import AddUser from './Components/AddUser.jsx'
-import ShowUsers from './Components/ShowUsers.jsx'
-
-/*
-This exercise will help you put together and practice all of the concepts you've
-learned thus far. It will also help you form a strong foundational knowledge of
-React and prepare you for your first project.
-
-The instructions for this project are located in the `instructions.md` file.
-*/
+import ShowPlayers from './Components/ShowPlayers.jsx'
 
 class App extends Component {
+    // Put the dummy player list into 'state'
+  state = {
+    players: [
+      {"id": 1, "firstname": "Karen",   "lastname": "Isgrigg",  "username": "karen_isgrigg",   "gamesplayed": 0},
+      {"id": 2, "firstname": "Richard", "lastname": "Kalehoff", "username": "richardkalehoff", "gamesplayed": 0},
+      {"id": 3, "firstname": "Tyler",   "lastname": "McGinnis", "username": "tylermcginnis",   "gamesplayed": 0},
+    ]
+  }
   render() {
     return (
       <div className="App">
       	<Header />
         <AddUser />
-        <ShowUsers />
+        <ShowPlayers players={this.state.players}/>
       </div>
     );
   }
