@@ -21,18 +21,25 @@ class App extends Component {
 
   addPlayer = (username, firstname, lastname) => {
       // Find next id
-    var playerIds = this.state.players.map(player => player.id);
+    const playerIds = this.state.players.map(player => player.id);
     const nextId = Math.max( ...playerIds ) + 1;
-      //    
-    this.setState(oldState => ({
-      players: [...oldState.players, {
-                 id: nextId, 
-                 username: username,
-                 firstname: this.capitaliseString(firstname),
-                 lastname: this.capitaliseString(lastname),
-                 gamesplayed: 0
-                }],
-    }));
+      // Check existing usernames
+    const usernames = this.state.players.map(player => player.username);
+    if (usernames.includes(username)) {
+      //issue and alert
+      alert("Duplicate username, nothing is being saved!")
+    } else {
+        // Add new user
+      this.setState(oldState => ({
+        players: [...oldState.players, {
+                   id: nextId, 
+                   username: username,
+                   firstname: this.capitaliseString(firstname),
+                   lastname: this.capitaliseString(lastname),
+                   gamesplayed: 0
+                  }],
+      }));
+    }
   };
 
   render() {
