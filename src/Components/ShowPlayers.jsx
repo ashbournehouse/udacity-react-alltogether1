@@ -20,16 +20,18 @@ class ShowPlayers extends React.Component {
   render () {
     return (
       <div className="show-players">
-        <h4 className="show-players-description">This div is rendered by the ShowPlayers Component</h4>
-        <ul className="players-list">
-          {this.props.players.map((player) => (
-            <li key={player.id} className="listed-player">
-              <p>User ID: {player.id} Username: {player.username}</p>
-              <p>Name: {player.firstname} {player.lastname}</p>
-              {this.state.showGames ? <p>Games played: {player.gamesplayed}</p> : "" }
-            </li>
-          ))}
-        </ul>
+        <h4 className="carrot">This div is rendered by the ShowPlayers Component</h4>
+        <div className="players">
+          <ul className="players-list">
+            {this.props.players.map((player) => (
+              <li key={player.id} className="listed-player">
+                <p>User ID: {player.id} - Username: {player.username}</p>
+                <p>Name: {player.firstname} {player.lastname}</p>
+                {this.state.showGames ? <p>Games played: {player.gamesplayed}</p> : "" }
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className="show-games-controls">
           <button 
             className="submit-button" 
