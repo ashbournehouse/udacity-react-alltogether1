@@ -14,11 +14,32 @@ class App extends Component {
       {"id": 3, "firstname": "Tyler",   "lastname": "McGinnis", "username": "tylermcginnis",   "gamesplayed": 0},
     ]
   }
+  
+  capitaliseString(value) {
+    return value.charAt(0).toUpperCase() + value.toLowerCase().slice(1);
+  }
+
+  addPlayer = (username, firstname, lastname) => {
+      // Find next id
+    var playerIds = this.state.players.map(player => player.id);
+    const nextId = Math.max( ...playerIds ) + 1;
+      //    
+    this.setState(oldState => ({
+      players: [...oldState.players, {
+                 id: nextId, 
+                 username: username,
+                 firstname: this.capitaliseString(firstname),
+                 lastname: this.capitaliseString(lastname),
+                 gamesplayed: 0
+                }],
+    }));
+  };
+
   render() {
     return (
       <div className="App">
       	<Header />
-        <AddUser />
+        <AddUser addPlayer={this.addPlayer}/>
         <ShowPlayers players={this.state.players}/>
       </div>
     );

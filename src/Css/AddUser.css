@@ -6,33 +6,83 @@
   margin: auto;
   border: 4px solid #00ff00;
   padding: 0;
+  display: grid;
+  grid-template-columns: 20px 600px 180px;
+  grid-template-rows: 40px 48px 40px 48px 40px 48px 40px 64px;
+  grid-template-areas:
+  'add-user-heading add-user-heading add-user-heading'
+  'left username-input-label right'
+  'left username-entry right'
+  'left firstname-input-label right'
+  'left firstname-entry right'
+  'left lastname-input-label right'
+  'left lastname-entry right'
+  'required-field-note required-field-note controls'
 }
 
-.add-user-description {
+.add-user-heading {
+  grid-area: add-user-heading;
 }
-
-.input-label {
+.username-input-label {
+  grid-area: username-input-label;
   text-align: left;
-  margin: 16px 2px 8px 40px;
-  font-size: 24px;
+  font-size: 20px;
   color: #333333;
+  margin: 16px 2px 8px 40px;
 }
-
-.text-input {
-  width: 600px;
+.username-entry {
+  grid-area: username-entry;
   background-color: #999999;
   text-align: left;
-  margin: 0;
+  margin: 0 0 0 60px;
   font-size: 20px;
   color: #0000ff;
 }
-
+.firstname-input-label {
+  grid-area: firstname-input-label;
+  text-align: left;
+  font-size: 20px;
+  color: #333333;
+  margin: 16px 2px 8px 40px;
+}
+.firstname-entry {
+  grid-area: firstname-entry;
+  background-color: #999999;
+  text-align: left;
+  margin: 0 0 0 60px;
+  font-size: 20px;
+  color: #0000ff;
+}
+.lastname-input-label {
+  grid-area: lastname-input-label;
+  text-align: left;
+  font-size: 20px;
+  color: #333333;
+  margin: 16px 2px 8px 40px;
+}
+.lastname-entry {
+  grid-area: lastname-entry;
+  background-color: #999999;
+  text-align: left;
+  margin: 0 0 0 60px;
+  font-size: 20px;
+  color: #0000ff;
+}
+.required-field-note {
+  grid-area: required-field-note;
+  text-align: left;
+  font-size: 16px;
+  padding: 12px 0px 12px 60px;
+}
 .required-indicator {
   color: #ff3333;
 }
-
-.required-field-note {
-  text-align: left;
-  margin: 16px 2px 12px 40px;
-  font-size: 16px;
+.controls {
+  grid-area: controls;
+  padding: 10px;
 }
+.submit-button {
+  font-size: 18px;
+}
+
+
